@@ -24,7 +24,7 @@ describe LineItemsController do
   # LineItem. As you add validations to LineItem, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {:cart_id => 1, :product_id => 1}
+    {}
   end
 
   # This should return the minimal set of values that should be in the session
@@ -159,6 +159,14 @@ describe LineItemsController do
       delete :destroy, {:id => line_item.to_param}, valid_session
       response.should redirect_to(line_items_url)
     end
+  end
+
+  def current_cart
+    Cart.find(session[:cart_id])
+  rescue ActiveRecord::RecordNotFound
+    cart = Cart.create
+    session[:cart_id] = cart.id
+    cart
   end
 
 end
