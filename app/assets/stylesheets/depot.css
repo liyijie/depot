@@ -158,6 +158,17 @@
   font: 120% bold;
 }
 
+#cart, #cart table {
+  font-size: smaller;
+  color: white;
+}
+
+#cart table {
+  border-top: 1px dotted #595;
+  border-bottom: 1px dotted #595;
+  border-bottom: 10px;
+}
+
 #store .item_price, #store .total_line {
   text-align: right;
 }
