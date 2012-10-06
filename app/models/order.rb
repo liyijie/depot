@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
 
   validates_presence_of :name, :address, :email, :pay_type
   validates_inclusion_of :pay_type, :in => PAYMENT_TYPES
-
+  
   def add_line_items_from_cart(cart)
     cart.line_items.each do |item|
       item.cart_id = nil
